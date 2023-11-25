@@ -37,7 +37,7 @@ These will be referenced throughout your build processes.
  Here is the [Figma Wireframe](https://www.figma.com/file/LEidNGkHRaHj6TTAQIle1g/Fake-Store-DOM?node-id=0%3A1&t=40aoBL5SYbHHtSsw-1). This is **not** pixel perfect; however, base **bootstrap** components will meet most requirements of this wireframe with some changes to the either the component or utilizing your local CSS file.
 
  Feel free to utilize any color theme that you desire. The only color requirements are detailed within the wireframe itself, such as buttons and the "Total" row within the cart.
-
+ 
 ---
 
 # Tickets
@@ -156,7 +156,7 @@ It is expected to have one single fetch that accepts variable data to help deter
 - Consider Scope and Hoisting when writing various aspects of your code, such as event listeners.
 
 **Ticket Requirements:**
-- gloabl variables should not have the capability to change later in the code.
+- global variables should not have the capability to change later in the code.
 - The `fakeStore()` function should be written as a block body arrow function.
 - The window onload should provide an endpoint that returns **all** data from the API in ascending order.
   - This should be set to the very bottom of the file.
