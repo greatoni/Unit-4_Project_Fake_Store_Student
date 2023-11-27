@@ -53,9 +53,62 @@ category3.addEventListener('click', e => {
 
 displayCards(parameter)
 {
-    //create elements
+    //*create elements
+
+    let newCard = document.createElement('div')
+    let title = document.createElement('h3')
+
+    let img = document.createElement('img');
+
+    let body = document.createElement('div')
+
+    // These elements are listed in the order they are appended
+    let descAccordion = document.createElement('div');
+    let desc = document.createElement('p')
+    // List End
+
+    let hl = document.createElement('hr')
+    
+    // These elements are listed in the order they are appended
+    let priceAccordion = document.createElement('div');
+    let price = document.createElement('p')
+    // List End
+
+    let add = document.createElement('button');
 
     //assign attributes
 
+    newCard.className = 'card';
+
+    img.className = 'cardImg';
+
+    body.className = 'cardBody';
+
+    title.textContent = "Placeholder!"
+    title.className = 'title';
+
+    descAccordion.className = 'accordionClass'
+    desc.textContent = "PlaceHolder!"
+    desc.className = 'desc'
+
+    priceAccordion.className = 'accordionClass'
+    price.textContent = "0$"
+    price.className = 'price'
+
+    add.className = 'addbutton'
+    add.textContent = 'Add to Cart!'
+
     //append to parent
+
+    descAccordion.appendChild(desc);
+
+    priceAccordion.appendChild(price);
+
+    body.appendChild(title)
+    body.appendChild(descAccordion)
+    body.appendChild(priceAccordion)
+    body.appendChild(add)
+
+    newCard.appendChild(img)
+    newCard.appendChild(body)    
 }
