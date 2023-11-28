@@ -15,8 +15,37 @@ nav {
 }
 
 #display{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
     margin-top: 5rem;
+}
+
+#cart{
+    color: white;
+    background-color: green;
+}
+
+#The-Store{
+    width: 64px;
+    height: 32px;
+}
+
+.card {
+    text-align: center;
+    width: 23%;
+    margin: auto;
+    background-color: white;
+}
+
+.addbutton {
+    width: 100%;
+    background-color: green;
+}
+
+.accordionClass {
+    text-align: center;
 }
 
 footer

@@ -24,8 +24,6 @@ onload = () => {
     console.log(category1)
 }
 
-displayCards(parameter)
-
 //* Event Listeners
 
 category1.addEventListener('click', e => {
@@ -51,8 +49,19 @@ category3.addEventListener('click', e => {
 
 //*Functions:
 
-displayCards(parameter)
+function emptyElements(element) {
+    while(element.firstChild)
+    {
+        element.removeChild(element.firstChild)
+    }
+}
+
+function displayCards(parameter)
 {
+
+    emptyElements(displayDiv)
+
+    // A loop should be created starting here that loops through each product within a category,
     //*create elements
 
     let newCard = document.createElement('div')
@@ -111,4 +120,11 @@ displayCards(parameter)
 
     newCard.appendChild(img)
     newCard.appendChild(body)    
+
+    displayDiv.appendChild(newCard)
+}
+
+function addToCart()
+{
+    console.log("This function has not been implemented yet.")
 }
