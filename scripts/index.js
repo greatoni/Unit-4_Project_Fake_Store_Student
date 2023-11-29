@@ -24,6 +24,20 @@ const totalP = document.getElementById('Total');
 const clearB = document.getElementById('clearCart');
 const purchaseB = document.getElementById('purchase')
 
+//declaring alert statements and functions
+const alertPlace = document.getElementById('alertPlacement')
+const appendAlert = (message, type) => {
+const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+].join('')
+
+  alertPlace.append(wrapper)
+}
+
 // async function fake store
 async function fakeStore(endpoint)
 {
@@ -81,6 +95,8 @@ purchaseB.addEventListener('click', e => {
     e.preventDefault();
     emptyCart();
     //! AN ALERT SHOULD BE PLACED HERE!!!!!!!
+    appendAlert('THANK YOU FOR YOUR PURCHASE!!!!', 'success')
+
 })
 
 //*Functions:
@@ -269,7 +285,7 @@ function displayCart() {
         quantityHeader.textContent = cart[items].quantity;
         itemT.textContent = `${cart[items].title} for ${cart[items].cost} each.`
         let multiprice = (cart[items].cost * cart[items].quantity)
-        priceT.textContent = `${multiprice.toFixed(2)}$`;
+        priceT.textContent = `$${multiprice.toFixed(2)}`;
 
         //append
         newRow.appendChild(quantityHeader);
@@ -301,10 +317,10 @@ function accessTotals() {
     let shippingCosts = (taxedTotal * shippingCost)
     let totalTotal = (taxedTotal + shippingCosts);
 
-    subtotalP.textContent = `${subTotal.toFixed(2)}$`;
-    taxP.textContent = `${taxes.toFixed(2)}$`;
-    shippingP.textContent = `${shippingCosts.toFixed(2)}$`;
-    totalP.textContent = `${totalTotal.toFixed(2)}$`;
+    subtotalP.textContent = `$${subTotal.toFixed(2)}`;
+    taxP.textContent = `$${taxes.toFixed(2)}`;
+    shippingP.textContent = `$${shippingCosts.toFixed(2)}`;
+    totalP.textContent = `$${totalTotal.toFixed(2)}`;
 
-    purchaseB.textContent = `Purchase for ${totalTotal.toFixed(2)}`
+    purchaseB.textContent = `Purchase for $${totalTotal.toFixed(2)}`
 }
