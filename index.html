@@ -16,15 +16,73 @@
     <nav>
         <div id="link-List">
         <img src="assets/FSAPI.png" alt="A image of The Store's logo!" id="The-Store">
-        <button type="button" id="cart">Cart</button>
-        <button type="button" id="category1">VidyaGames</button>
-        <button type="button" id="category2">Books</button>
-        <button type="button" id="category3">Miniatures</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal" id="cartButton">Cart</button>
+        <button type="button" id="category1">Electronics</button>
+        <button type="button" id="category2">Jewelery</button>
+        <button type="button" id="category3">Men's Clothing</button>
 
         </div>
 
     </nav>
     
+    <div class="modal" id="cartModal" tabindex="-1", aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">YOUR CART</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class = "cartLoop">
+                        <!-- This table is used for showing cart items. -->
+                        <table class = 'table table-striped'>
+                            <thread>
+                                <tr>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Item</th>
+                                    <th scope='col'>Price</th>
+                                </tr>
+                            </thread>
+                            <tbody id="tableBody">
+                                <!-- WE WILL USE A DOM LOOP TO PUT OBJECTS HERE! -->
+
+                            </tbody>
+                            <tfoot>
+                                <!-- Stores subtotals and stuff -->
+                                <tr>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col" id="Subtotal">undefined</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Tax</th>
+                                    <th scope="col" id="Tax">undefined</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Shipping</th>
+                                    <th scope="col" id="Shipping">undefined</th>
+                                </tr>
+                                <tr class="table-success">
+                                    <th scope="col">Total</th>
+                                    <th scope="col" id="Total">undefined</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <div class = "pricesAndTaxes">
+
+                    </div>
+                </div>
+                <div class = "modal-footer">
+                    <button type="button" class = "btn btn-secondary" id="clearCart">Clear Cart</button>
+                    <button type="button" class = "btn btn-primary" id="purchase">Purchase for undefined</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     <div id="display">
 
     </div>

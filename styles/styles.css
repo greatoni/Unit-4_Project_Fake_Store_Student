@@ -22,7 +22,7 @@ nav {
     margin-top: 5rem;
 }
 
-#cart{
+#cartButton, #purchase {
     color: white;
     background-color: green;
 }
