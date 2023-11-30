@@ -143,6 +143,10 @@ function displayCards(endpoint)
     
     // These elements are listed in the order they are appended
     let priceAccordion = document.createElement('div');
+    let priceAccHeader = document.createElement('h2');
+    let priceAccordionButton = document.createElement('button')
+    let priceCollapse = document.createElement('div');
+    let priceBody = document.createElement('div')
     let price = document.createElement('p')
     // List End
 
@@ -163,6 +167,7 @@ function displayCards(endpoint)
     accordion.className = 'accordion';
     accordion.id = `cardAccordion${endpoint[items].id}`
 
+    // DescAccordion stuff
     descAccordion.className = 'accordion-item'
     descAccHeader.className = 'accordion-header'
     
@@ -182,7 +187,23 @@ function displayCards(endpoint)
     desc.textContent = endpoint[items].description
     desc.className = 'desc'
 
-    priceAccordion.className = 'accordion'
+    // priceAccordion Stuff
+    priceAccordion.className = 'accordion-item'
+    priceAccHeader.className = 'accordion-header'
+
+    priceAccordionButton.className = 'accordion-button collapsed'
+    priceAccordionButton.textContent = 'Price'
+    priceAccordionButton.setAttribute("data-bs-toggle","collapse")
+    priceAccordionButton.setAttribute('data-bs-target',`#priceCollapse${endpoint[items].id}`)
+    priceAccordionButton.setAttribute('aria-expanded', 'true')
+    priceAccordionButton.setAttribute('aria-controls', 'collapseOne');
+
+    priceCollapse.className = "accordionCollapse collapse"
+    priceCollapse.id = `priceCollapse${endpoint[items].id}`
+    priceCollapse.setAttribute('data-bs-parent',`cardAccordion${endpoint[items].id}`)
+    
+    priceBody.className = 'accordion-body'
+
     price.textContent = `${endpoint[items].price.toFixed(2)}$`
     price.className = 'price'
 
@@ -207,9 +228,9 @@ function displayCards(endpoint)
 
     //append to parent
 
-    descAccordion.appendChild(desc);
+    //descAccordion.appendChild(desc);
 
-    priceAccordion.appendChild(price);
+    //priceAccordion.appendChild(price);
 
     body.appendChild(title)
     
@@ -222,8 +243,13 @@ function displayCards(endpoint)
     descAccordion.appendChild(descCollapse);
     accordion.appendChild(descAccordion)
 
+    priceBody.appendChild(price);
+    priceCollapse.appendChild(priceBody);
 
+    priceAccHeader.appendChild(priceAccordionButton);
 
+    priceAccordion.appendChild(priceAccHeader);
+    priceAccordion.appendChild(priceCollapse);
     accordion.appendChild(priceAccordion)
 
     body.appendChild(accordion);
